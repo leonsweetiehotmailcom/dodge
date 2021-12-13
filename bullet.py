@@ -63,6 +63,10 @@ class Bullet(Sprite):
                 self.reset()
 
     def blit_me(self):
+        colour = (250, 250, 250)
+        if self.bullet_power >= 20:
+            colour = (random.randint(0, 250), random.randint(0, 250), random.randint(0, 250))
+
         if self.bullet_charged:
             if self.owner.sprite_direct == -1:
                 x = self.owner.rect.left - 5
@@ -71,10 +75,7 @@ class Bullet(Sprite):
                 x = self.owner.rect.right + 5
                 self.bullet_speed[0] = 4
             y = self.owner.rect.top + 20
-            colour = (250, 250, 250)
-            if self.bullet_power == 20:
-                colour_super = (random.randint(0, 250), random.randint(0, 250), random.randint(0, 250))
+
             self.rect = pygame.draw.circle(self.screen, colour, (x, y), self.bullet_power)
         if self.bullet_fired:
             self.rect = pygame.draw.circle(self.screen, colour, self.rect.center, self.bullet_power)
-
