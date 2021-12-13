@@ -32,7 +32,7 @@ class Ghost(Sprite):
             if self.speed[0] == 0:
                 self.speed[0] = self.velocity
 
-        if abs(self.rect.centerx - self.target.rect.centerx) < 294 and abs(self.rect.centery - self.target.rect.centery) < 204:
+        if abs(self.rect.centerx - self.target.rect.centerx) < 196 and abs(self.rect.centery - self.target.rect.centery) < 204:
             if self.rect.centerx - self.target.rect.centerx > 0:
                 self.speed[0] = -self.velocity
             else:
