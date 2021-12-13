@@ -77,3 +77,4 @@ while True:
         screen.blit(text, (10, 10))
 
         pygame.display.flip()
+        time.sleep(0.01)
