@@ -1,5 +1,5 @@
 import time
-
+import random
 import pygame
 from pygame.sprite import Sprite
 
@@ -50,10 +50,10 @@ class Bullet(Sprite):
 
     def update(self):
         if self.bullet_charged:
-            power_charged = int((time.time() - self.bullet_charge_start) * 5)
-            if power_charged > self.bullet_power and self.bullet_power <= 10:
-                if power_charged > 10:
-                    power_charged = 10
+            power_charged = int((time.time() - self.bullet_charge_start) * 10)
+            if power_charged > self.bullet_power and self.bullet_power <= 20:
+                if power_charged > 20:
+                    power_charged = 20
                 self.bullet_power = power_charged
         if self.bullet_fired:
             self.rect = self.rect.move(self.bullet_speed)
@@ -71,6 +71,10 @@ class Bullet(Sprite):
                 x = self.owner.rect.right + 5
                 self.bullet_speed[0] = 4
             y = self.owner.rect.top + 20
-            self.rect = pygame.draw.circle(self.screen, (250, 250, 250), (x, y), self.bullet_power)
+            colour = (250, 250, 250)
+            if self.bullet_power == 20:
+                colour_super = (random.randint(0, 250), random.randint(0, 250), random.randint(0, 250))
+            self.rect = pygame.draw.circle(self.screen, colour, (x, y), self.bullet_power)
         if self.bullet_fired:
-            self.rect = pygame.draw.circle(self.screen, (250, 250, 250), self.rect.center, self.bullet_power)
+            self.rect = pygame.draw.circle(self.screen, colour, self.rect.center, self.bullet_power)
+
