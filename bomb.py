@@ -33,6 +33,7 @@ class Bomb(Sprite):
         print("LAUNCH BOMB")
     def launch(self, bombs_left):
         if bombs_left >= 1:
+            #currently the problem is that i can launch the bomb, but it doesnt blit itself
             self.bomb_launched = True
             self.rect = pygame.draw.circle(self.screen, (250, 0, 0), self.rect.center, 5)
 
