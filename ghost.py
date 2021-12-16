@@ -12,9 +12,9 @@ class Ghost(Sprite):
 
         self.velocity = 2
         self.speed = [-2, 0]
-        self.sprite = pygame.image.load("images/ghost.png")
+        self.sprite = pygame.image.load("images/spider.png")
         self.rect = self.sprite.get_rect()
-        self.rect.left = screen.get_rect().right - 50
+        self.rect.left = screen.get_rect().right - 100
         self.rect.bottom = random.randint(screen.get_rect().top + 50, screen.get_rect().bottom - 50)
         self.radius = 10
 
