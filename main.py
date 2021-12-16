@@ -1,6 +1,6 @@
 import sys
 import time
-from bomb import Bomb
+
 import pygame
 from pygame.sprite import Group
 
@@ -29,7 +29,6 @@ def reset():
     hero = Hero(screen)
     ghost = Ghost(screen, hero)
     ghosts = Group()
-
     ghosts.add(ghost)
     start = time.time()
     active = True

@@ -1,6 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
-from bomb import Bomb
+
 from bullet import Bullet
 
 
@@ -19,7 +19,6 @@ class Hero(Sprite):
         self.radius = 10
 
         self.bullet = Bullet(screen, self)
-        self.bomb = Bomb(screen, self)
 
     def handle_event(self, event):
         if pygame.KEYDOWN == event.type:
@@ -45,7 +44,6 @@ class Hero(Sprite):
             elif pygame.K_DOWN == event.key:
                 self.speed[1] = 0
         self.bullet.handle_event(event)
-        self.bomb.handle_event(event)
 
     def update(self):
         self.rect = self.rect.move(self.speed)
@@ -58,4 +56,3 @@ class Hero(Sprite):
     def blit_me(self):
         self.screen.blit(self.sprite, self.rect)
         self.bullet.blit_me()
-
